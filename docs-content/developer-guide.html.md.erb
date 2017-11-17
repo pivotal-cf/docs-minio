@@ -1,16 +1,16 @@
 ---
-title: Minio Developers Guide
+title: Minio for PCF Developers Guide
 owner: Partners
 ---
 
-# Creating Minio Instance
-This topic describes how to create Minio instances by developers.
+# Creating a Minio for PCF Instance
+This topic describes how a developer creates Minio instances.
 
-## Create Minio instance on local storage
+## Create a Minio instance on local storage
 
 <%= image_tag("local-storage.png") %>
 
-In this deployment, Minio will use VM's local persistent disk for storage. Use the following command to create a Minio instance:
+In this deployment, Minio will use the VM's local persistent disk for storage. Use the following command to create a Minio instance:
 
 ```sh
 cf create-service minio standard minio-instance-1 -c minio.conf
@@ -27,11 +27,11 @@ The minio.conf file should look like this:
 ```
 Custom accesskey and secretkey should be provided.
 
-## Start Minio with Azure Blob Storage backend
+## Create a Minio Instance with an Azure Blob Storage Backend
 
 In this deployment, Minio will provide S3 API access for Azure Blob Storage.
 
-<%= image_tag("azure.svg") %>
+<%= image_tag("azure.png") %>
 
 Run the following command to create Minio instance:
 
@@ -49,13 +49,13 @@ The minio.conf file should look like this:
 }
 ```
 
-Please change `azure-storage-account-name` and `azure-storage-account-key` with the actual Azure Account name and key.
+Change `azure-storage-account-name` and `azure-storage-account-key` with the actual Azure Account name and key.
 
-## Create Minio for Google Cloud Storage backend
+## Create a Minio Instance for a Google Cloud Storage Backend
 
 In this deployment, Minio will provide S3 API access for Google Cloud Storage.
 
-<%= image_tag("gcs.svg") %>
+<%= image_tag("gcs.png") %>
 
 ```sh
 cf create-service minio standard minio-instance-1 -c minio.conf
@@ -77,7 +77,7 @@ After creating a Minio instance you can access the storage using Minio-WebUI. Ge
 
 <%= image_tag("cf-service.png") %>
 
-Access the Dashboard URL `https://d3ecc8f6-5684-4882-90c4-179285ff9b09.sys.your-pcf-domain.com` using Web-Browser
+Access the Dashboard URL `https://d3ecc8f6-5684-4882-90c4-179285ff9b09.sys.your-pcf-domain.com` using a Web-Browser
 
 <%= image_tag("web-browser.png") %>
 
@@ -112,7 +112,7 @@ Please check [documentation](https://docs.minio.io/docs/minio-client-complete-gu
 ## Client SDKs
 
 ### Minio Client SDKs
-Minio storage can be accessed through the following minio SDKs:
+Minio storage can be accessed through the following Minio SDKs:
 
 * [minio-go](https://docs.minio.io/docs/golang-client-quickstart-guide)
 * [minio-java](https://docs.minio.io/docs/java-client-quickstart-guide)
