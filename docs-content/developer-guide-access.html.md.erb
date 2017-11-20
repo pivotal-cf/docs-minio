@@ -1,75 +1,9 @@
 ---
-title: Minio for PCF Developers Guide
+title: Access Minio Instance
 owner: Partners
 ---
 
-# Creating a Minio for PCF Instance
-This topic describes how a developer creates Minio instances.
-
-## Create a Minio instance on local storage
-
-<%= image_tag("local-storage.png") %>
-
-In this deployment, Minio will use the VM's local persistent disk for storage. Use the following command to create a Minio instance:
-
-```sh
-cf create-service minio standard minio-instance-1 -c minio.conf
-```
-
-The minio.conf file should look like this:
-
-```
-{
-  "accesskey": "randomaccesskey",
-  "secretkey": "randomsecretkey"
-}
-
-```
-Custom accesskey and secretkey should be provided.
-
-## Create a Minio Instance with an Azure Blob Storage Backend
-
-In this deployment, Minio will provide S3 API access for Azure Blob Storage.
-
-<%= image_tag("azure.png") %>
-
-Run the following command to create Minio instance:
-
-```sh
-cf create-service minio standard minio-instance-1 -c minio.conf
-```
-
-The minio.conf file should look like this:
-
-```
-{
-  "gateway": "azure",
-  "accesskey": "azure-storage-account-name",
-  "secretkey": "azure-storage-account-key"
-}
-```
-
-Change `azure-storage-account-name` and `azure-storage-account-key` with the actual Azure Account name and key.
-
-## Create a Minio Instance for a Google Cloud Storage Backend
-
-In this deployment, Minio will provide S3 API access for Google Cloud Storage.
-
-<%= image_tag("gcs.png") %>
-
-```sh
-cf create-service minio standard minio-instance-1 -c minio.conf
-```
-
-The minio.conf can be generated using [minio-cf](https://github.com/minio/minio-cf) command:
-
-```sh
-minio-cf --access-key randomaccesskey --secret-key randomsecretkey --gcs /path/to/credentials.json > minio.conf
-```
-
-Custom access-key and secret-key should be provided. Follow the steps in [this document](https://docs.minio.io/docs/minio-gateway-for-gcs) to generate the credentials.json file.
-
-# Accessing Minio
+Minio storage can be accessed using web-UI, mc and client-SDKs as illustrated in the following sections.
 
 ## Minio Web-UI
 
@@ -77,7 +11,7 @@ After creating a Minio instance you can access the storage using Minio-WebUI. Ge
 
 <%= image_tag("cf-service.png") %>
 
-Access the Dashboard URL `https://d3ecc8f6-5684-4882-90c4-179285ff9b09.sys.your-pcf-domain.com` using a Web-Browser
+Access the Dashboard URL `https://d3ecc8f6-5684-4882-90c4-179285ff9b09.sys.your-pcf-domain.com` using Web-Browser
 
 <%= image_tag("web-browser.png") %>
 
@@ -112,7 +46,7 @@ Please check [documentation](https://docs.minio.io/docs/minio-client-complete-gu
 ## Client SDKs
 
 ### Minio Client SDKs
-Minio storage can be accessed through the following Minio SDKs:
+Minio storage can be accessed through the following minio SDKs:
 
 * [minio-go](https://docs.minio.io/docs/golang-client-quickstart-guide)
 * [minio-java](https://docs.minio.io/docs/java-client-quickstart-guide)
