@@ -11,7 +11,8 @@ This topic describes how to create Minio instances by developers.
 
 In this deployment, Minio will use a VM's local persistent disk for storage. Use the following command to create a Minio instance:
 
-```sh
+```
+sh
 cf create-service minio standard minio-instance-1 -c minio.conf
 ```
 
@@ -48,7 +49,7 @@ The minio.conf file should look like this:
 }
 ```
 
-Please change `azure-storage-account-name` and `azure-storage-account-key` with the actual Azure Account name and key.
+Change `azure-storage-account-name` and `azure-storage-account-key` with the actual Azure Account name and key.
 
 ## Create Minio for Google Cloud Storage Backend
 
@@ -56,15 +57,17 @@ In this deployment, Minio will provide S3 API access for Google Cloud Storage.
 
 <%= image_tag("gcs.png") %>
 
-```sh
+```
+sh
 cf create-service minio standard minio-instance-1 -c minio.conf
 ```
 
-The minio.conf can be generated using [minio-cf](https://github.com/minio/minio-cf) command:
+Generated the Minio conf with the [minio-cf](https://github.com/minio/minio-cf) command:
 
-```sh
+```
+sh
 minio-cf --access-key randomaccesskey --secret-key randomsecretkey --gcs /path/to/credentials.json > minio.conf
 ```
 
-Custom access-key and secret-key should be provided. Follow the steps in [this document](https://docs.minio.io/docs/minio-gateway-for-gcs) to generate the credentials.json file.
+Custom access-key and secret-key should be provided. Follow [these steps]](https://docs.minio.io/docs/minio-gateway-for-gcs) to generate the credentials.json file.
 

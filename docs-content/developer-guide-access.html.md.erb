@@ -3,16 +3,16 @@ title: Access Minio Instance
 owner: Partners
 ---
 
-Minio storage can be accessed using web-UI, mc, and client-SDKs as illustrated in the following sections.
+Access Minio storage from the Web-UI, Minio Client Tool (mc), and client-SDKs, as illustrated in the following sections.
 
 ## Minio Web-UI
 
-After creating a Minio instance you can access the storage using Minio-WebUI. Get the Dashboard-URL using the `cf service` command:
+After creating a Minio instance, you can access the storage using Minio-WebUI. 
 
+Get the Dashboard-URL using the `cf service` command:
 <%= image_tag("cf-service.png") %>
 
-Access the Dashboard URL `https://d3ecc8f6-5684-4882-90c4-179285ff9b09.sys.your-pcf-domain.com` using Web-Browser
-
+Access the Dashboard URL `https://d3ecc8f6-5684-4882-90c4-179285ff9b09.sys.YOUR-PCF-DOMAIN.com` using a web browser. 
 <%= image_tag("web-browser.png") %>
 
 ## Minio Client Tool
@@ -23,30 +23,30 @@ Install [mc](https://minio.io/downloads.html#download-client) and configure `mc`
 mc config host add minio https://d3ecc8f6-5684-4882-90c4-179285ff9b09.sys.your-pcf-domain.com randomaccesskey randomsecretkey
 ```
 
-Create Bucket:
+Create a bucket:
 
 ```sh
 mc mb minio/testbucket
 ```
 
-Upload File:
+Upload a file:
 
 ```sh
 mc cp /tmp/piano.mp3 minio/testbucket
 ```
 
-Download File:
+Download a file:
 
 ```sh
 mc cp minio/testbucket/piano.mp3 /tmp/new-piano.mp3
 ```
 
-Please check [documentation](https://docs.minio.io/docs/minio-client-complete-guide) for detailed usage of `mc`.
+For more information about using mc, read the [documentation](https://docs.minio.io/docs/minio-client-complete-guide).
 
 ## Client SDKs
 
 ### Minio Client SDKs
-Minio storage can be accessed through the following minio SDKs:
+Access Minio storage with the following Minio SDKs:
 
 * [minio-go](https://docs.minio.io/docs/golang-client-quickstart-guide)
 * [minio-java](https://docs.minio.io/docs/java-client-quickstart-guide)
@@ -54,7 +54,7 @@ Minio storage can be accessed through the following minio SDKs:
 * [minio-js](https://docs.minio.io/docs/javascript-client-quickstart-guide)
 * [minio-python](https://docs.minio.io/docs/python-client-quickstart-guide)
 
-Sample Javascript code to upload a file using minio-js:
+Here is an example Javascript code to upload a file using minio-js:
 
 ```js
 var Minio = require('minio')
@@ -83,12 +83,11 @@ minioClient.makeBucket('europetrip', '', function(err) {
     });
 });
 ```
-
-Please use the `accessKey` and `secretKey` that was used to create the Minio instance.
+Use the `accessKey` and `secretKey` that were used to create the Minio instance.
 
 ### Amazon Client SDKs
 
-As Minio is Amazon S3 compatible, it can also be accessed using AWS SDKs:
+Because Minio is Amazon S3 compatible, you can also access it with the AWS SDKs:
 
 * [aws-sdk-go](https://docs.minio.io/docs/how-to-use-aws-sdk-for-go-with-minio-server)
 * [aws-sdk-java](https://docs.minio.io/docs/how-to-use-aws-sdk-for-java-with-minio-server)
