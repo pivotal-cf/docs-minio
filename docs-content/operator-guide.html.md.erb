@@ -1,0 +1,42 @@
+---
+title: Operator Guide
+owner: Partners
+---
+
+
+
+This topic describes how to install and configure Minio.
+
+##<a id='install'></a> Install Minio Tile
+
+1. Download the Minio Tile from Pivotal Network.
+
+1. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the Tile. 
+
+1. Under the **Import a Product** button, click **+** next to the version number of Minio. 
+This adds the tile to your staging area.
+
+##<a id='configure'></a> Configure Minio Tile
+
+1. Click the newly added **Minio** Tile.
+
+2. Fill in the configuration.
+
+<%= image_tag("configure.png") %>
+
+* **VM Type**: Select the VM configuration of Minio instance.
+
+    Minio itself is lightweight and can run on embedded systems as well as on multi-core servers. Hence the configuration of the VM will depend on the workload. A Virtual Machine with RAM of 4G and 2-cores should be good for most workloads.
+
+* **Number of VMs per service instance**:
+  - **1** : You can choose "1" if the VM's local disk is well protected (i.e if the virtual disks are on VMware vSAN or on Public clouds - Google Cloud Platform, Azure, Amazon)
+  - **4 to 16** : You can choose this 4 or more to provide protection against disk and node failures. Minio uses erasure-coding and bit-rot detection techniques to provide protection from the disk and node failures. With erasure-code, usable space is half of total storage space (numberOfVMs*persistentDiskSize)/2. For example if you choose 6 VMs and 100G per VM, object storage space will be 300G. Minio uses half the storage space to store data and half the space to store parity information.
+
+
+* **Persistent Disk Size**: Size of the persistent disk in a VM.
+
+
+Click **Save**.
+
+Return to the Ops Manager Installation Dashboard and click **Apply changes** to install the Minio Tile.
+
