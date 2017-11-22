@@ -3,24 +3,21 @@ title: Minio for PCF Architecture
 owner: Partners
 ---
 
-Minio for PCF uses On-Demand Broker to provision dedicated Minio Virtual Machine instances through the `cf create-service` command. This enables multi-tenant self-service cloud storage service for cloud native applications, with infrastructure resources managed by the Cloud Foundry operator.
+Minio for PCF uses On-Demand Broker to provision dedicated Minio Virtual Machine instances with the `cf create-service` command. This enables multi-tenant self-service cloud storage service for cloud native applications, with infrastructure resources managed by the Cloud Foundry operator.
 
 <%= image_tag("pcf-architecture.png") %>
 
-The Minio object server on PCF can be configured in three ways. The same executable binary will run in every instance, but the characteristics will be determined by the configuration parameters.
+You can configure the Minio object server on PCF in three ways. The same executable binary will run in every instance, but the characteristics will be determined by the configuration parameters.
 
-In the simplest case, a single instance relies on the underlying storage system for data protection, 
-and Minio’s extended methods for insuring data durability will not be applied. This minimizes consumption of CPU and other resources. 
+In the simplest case, a single instance relies on the underlying storage system for data protection, and Minio’s extended methods for insuring data durability are not applied. This minimizes consumption of CPU and other resources. 
 
-As always, for all instances of Minio object service, data access and related operations will be governed by the Amazon S3 compatible API. If you have an application that you use to access data on S3, it should work with Minio without any modification.
+As always, for all instances of Minio object service, data access and related operations will be governed by the Amazon S3-compatible API. If you have an application that you use to access data on S3, it should work with Minio without any modification.
 
 Another possible configuration of Minio for PCF launches multiple instances. In this configuration, Reed-Solomon erasure coding protects each object from data loss. Additionally, “bit-rot detection” based on hashed checksums further ensures data durability.
 
 In both of the above configurations, the objects are stored locally on platforms hosted by PCF. There are two additional configuration options in which Minio’s object server acts as a translational gateway between applications running on PCF. 
 
 These use the S3 API and remote object storage written into the Azure Blob Storage or Google Cloud Storage services. Those remote alternatives to Amazon S3 do not 
-natively support the Amazon S3 API. However, instead of rewriting applications to work with the native 
-API specific to Azure or Google, Minio enables S3-based applications to utilize those services without 
-modification. 
+natively support the Amazon S3 API. However, instead of rewriting applications to work with the native API specific to Azure or Google, Minio enables S3-based applications to utilize those services without modification. 
 
 Being able to use the same application with multiple diverse object storage platforms is an intrinsic element in any enterprise multi-cloud strategy. Minio is committed to continuing to provide this and other enterprise multi-cloud capabilties to enterprise customers.
