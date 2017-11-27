@@ -19,13 +19,14 @@ This adds the tile to your staging area.</li>
 <li>Click on the newly added **Minio for PCF** Tile.</li>
 <li>Fill in the configuration.<br/>
 
-<img src="configure.png">
+<img src="images/configure.png">
+
   <ul>
   <li><strong>VM Type</strong>: Select the VM configuration of Minio instance.<br/>
   Minio itself is lightweight and can run on embedded systems as well as on multi-core servers. Hence the configuration of the VM will depend on the workload. A Virtual Machine with 4G of RAM and 2-cores should be good for most workloads.</li>
   <li><strong>Number of VMs per service instance</strong>: <br/>
   <strong>1</strong>: You can choose "1" if the VM's local disk is well protected (i.e if the virtual disks are on VMware, vSAN, or on Public clouds - Google Cloud Platform, Microsoft Azure, or Amazon Web Services)</li>
-  <li><strong>4 to 16</strong>: You can choose this option to provide protection against disk and node failures. Minio uses erasure-coding and bit-rot detection techniques to provide protection from the disk and node failures. With erasure-code, usable space is half of total storage space (numberOfVMs*persistentDiskSize)/2. For example if you choose 6 VMs and 100G per VM, object storage space will be 300G. Minio uses half the storage space to store data and half the space to store parity information.</li>
+  <strong>4 to 16</strong>: You can choose 4-16 VMs to provide protection against disk and node failures. Minio uses erasure-coding and bit-rot detection techniques to provide protection from the disk and node failures. With erasure-code, usable space is half of total storage space (numberOfVMs*persistentDiskSize)/2. For example if you choose 6 VMs and 100G per VM, object storage space will be 300G. Minio uses half the storage space to store data and half the space to store parity information.
   <li><strong>Persistent Disk Size</strong>: Size of the persistent disk in a VM.</li>
   </ul>
 </li>
