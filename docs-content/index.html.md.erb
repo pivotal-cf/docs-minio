@@ -29,7 +29,6 @@ Minio for PCF includes the following key features:
 * Amazon S3 Compatible: Amazon S3 API is the de facto standard for object storage. Minio implements Amazon S3 v2/v4 API.
 * Data Protection: Minio protects data against hardware failures using erasure code and bitrot detection. You may lose up to half the number of drives and still recover from it. Data protection code is accelerated using SIMD instructions on x64 and ARM CPUs.
 * Highly Available: Minio server can tolerate up to (N/2)-1 node failures in a distributed setup. In addition, you can configure Minio server to continuously mirror data between Minio and any Amazon S3 compatible server.
-* Lambda Compute: Minio server triggers Lambda functions through its AWS SNS/SQS compatible event notification service. Supported targets are message queues such as Kafka, NATS, AMQP, MQTT, Webhooks, and databases such as Elasticsearch, Redis, Postgres, and MySQL.
 
 ## <a id="snapshot"></a>Product Snapshot
 
