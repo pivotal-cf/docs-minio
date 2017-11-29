@@ -28,6 +28,7 @@ This adds the tile to your staging area.</li>
   <strong>1</strong>: You can choose "1" if the VM's local disk is well protected (i.e if the virtual disks are on VMware, vSAN, or on Public clouds - Google Cloud Platform, Microsoft Azure, or Amazon Web Services)</li>
   <strong>4 to 16</strong>: You can choose 4-16 VMs to provide protection against disk and node failures. Minio uses erasure-coding and bit-rot detection techniques to provide protection from the disk and node failures. With erasure-code, usable space is half of total storage space (numberOfVMs*persistentDiskSize)/2. For example if you choose 6 VMs and 100G per VM, object storage space will be 300G. Minio uses half the storage space to store data and half the space to store parity information.
   <li><strong>Persistent Disk Size</strong>: Size of the persistent disk in a VM.</li>
+  <li><strong>Availability Zone(s)</strong>: Select one or more availability zones.</li>
   </ul>
 </li>
 <li>Click <strong>Save</strong>.</li>
