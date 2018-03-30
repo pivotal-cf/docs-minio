@@ -1,5 +1,5 @@
 ---
-title: Minio for PCF (Amazon S3 Compatible)
+title: Minio for PCF (Amazon S3-Compatible)
 owner: Partners
 ---
 
@@ -7,7 +7,7 @@ This documentation describes Minio for Pivotal Cloud Foundry (PCF). Minio is an 
 
 ## <a id='overview'></a>Overview
 
-Minio provides Multi-Cloud Object Storage for PCF. Applications become portable by standardizing on the Amazon S3-compatible API, irrespective of the underlying cloud infrastructure.
+Minio provides multi-cloud object storage for PCF. Applications become portable by standardizing on the Amazon S3-compatible API, irrespective of the underlying cloud infrastructure.
 
 Minio supports the following storage backends:
 
@@ -20,11 +20,13 @@ Minio supports the following storage backends:
 ## <a id='overview'></a>Key Features
 Minio for PCF includes the following key features:
 
-* Amazon S3 Compatible: Amazon S3 API is the de facto standard for object storage. Minio implements Amazon S3 v2/v4 API.
-* Data Protection: Minio protects data against hardware failures using erasure code and bitrot detection. You may lose up to half the number of drives and still recover from it. Data protection code is accelerated using SIMD instructions on x64 and ARM CPUs.
-* Highly Available: Minio server can tolerate up to (N/2)-1 node failures in a distributed setup. In addition, you can configure Minio server to continuously mirror data between Minio and any Amazon S3 compatible server.
+* **Amazon S3-compatible:** Amazon S3 API is the de facto standard for object storage. Minio implements Amazon S3 v2/v4 API.
+* **Data protection:** Minio protects data against hardware failures using erasure code and bitrot detection. You may lose up to half the number of drives and still recover from it. Data protection code is accelerated using SIMD instructions on x64 and ARM CPUs.
+* **Highly available:** Minio server can tolerate up to (N/2)-1 node failures in a distributed setup. In addition, you can configure Minio server to continuously mirror data between Minio and any Amazon S3-compatible server.
 
 ## <a id="snapshot"></a>Product Snapshot
+
+<p class='note'><strong>Note:</strong> As of PCF v2.0, Elastic Runtime is renamed Pivotal Application Service (PAS).</p>
 
 The following table provides version and version-support information about Minio for PCF.
 
@@ -48,7 +50,7 @@ The following table provides version and version-support information about Minio
         <td>v1.12.x and v2.0.x</td>
     </tr>
     <tr>
-        <td>Compatible Pivotal Application Service (formerly known as Elastic Runtime) version(s)</td>
+        <td>Compatible Pivotal Application Service version(s)</td>
         <td>v1.12.x and 2.0.x</td>
     </tr>
     <tr>
@@ -56,7 +58,7 @@ The following table provides version and version-support information about Minio
         <td>AWS, Azure, GCP, OpenStack, and vSphere</td>
     </tr>
 </table>
-\* As of PCF v2.0, <em>Elastic Runtime</em> is renamed <em>Pivotal Application Service (PAS)</em>. 
+ 
 
 ## <a id="feedback"></a>Support and License
 For a commercial subscription, please contact pivotal@minio.io
