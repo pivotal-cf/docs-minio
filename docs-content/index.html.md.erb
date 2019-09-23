@@ -1,13 +1,13 @@
 ---
-title: Minio for PCF (Amazon S3-Compatible)
+title: Minio for Pivotal Platform (Amazon S3-Compatible)
 owner: Partners
 ---
 
-This documentation describes Minio for Pivotal Cloud Foundry (PCF). Minio is an open source object storage server with an Amazon S3-compatible API.
+This documentation describes Minio for Pivotal Platform. Minio is an open source object storage server with an Amazon S3-compatible API.
 
 ## <a id='overview'></a>Overview
 
-Minio provides multi-cloud object storage for PCF. Applications become portable by standardizing on the Amazon S3-compatible API, irrespective of the underlying cloud infrastructure.
+Minio provides multi-cloud object storage for Pivotal Platform. Applications become portable by standardizing on the Amazon S3-compatible API, irrespective of the underlying cloud infrastructure.
 
 Minio supports the following storage backends:
 
@@ -18,7 +18,7 @@ Minio supports the following storage backends:
 * Google Cloud Storage: Minio adds the Amazon S3 API to the Google Cloud Storage service. Objects are stored natively on GCS. This setup also works for existing objects without the need for any migration.
 
 ## <a id='overview'></a>Key Features
-Minio for PCF includes the following key features:
+Minio for Pivotal Platform includes the following key features:
 
 * **Amazon S3-compatible:** Amazon S3 API is the de facto standard for object storage. Minio implements Amazon S3 v2/v4 API.
 * **Data protection:** Minio protects data against hardware failures using erasure code and bitrot detection. You may lose up to half the number of drives and still recover from it. Data protection code is accelerated using SIMD instructions on x64 and ARM CPUs.
@@ -26,7 +26,7 @@ Minio for PCF includes the following key features:
 
 ## <a id="snapshot"></a>Product Snapshot
 
-The following table provides version and version-support information about Minio for PCF.
+The following table provides version and version-support information about Minio for Pivotal Platform.
 
 <table class="nice">
     <th>Element</th>
@@ -62,7 +62,7 @@ The following table provides version and version-support information about Minio
 </table>
  
 <p class="note warning"><strong> WARNING:</strong>
-Minio for PCF v1.0.0
+Minio for Pivotal Platform v1.0.0
 and earlier require a Ubuntu Trusty stemcell.
 The end-of-life date for Ubuntu Trusty is April 2019.
 If a security vulnerability is found on this stemcell after April, it will not be fixed.</p>
