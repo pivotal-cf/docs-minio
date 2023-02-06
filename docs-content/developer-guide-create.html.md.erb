@@ -7,7 +7,7 @@ This topic describes how to create Minio instances by developers.
 
 ## Create Minio Instance on Local Storage
 
-<%= image_tag("local-storage.png") %>
+![alt-text=""](./images/local-storage.png)
 
 In this deployment, Minio will use a VM's local persistent disk for storage. Use the following command to create a Minio instance:
 
@@ -30,7 +30,7 @@ Custom accesskey and secretkey should be provided. AccessKey is similar to usern
 
 In this deployment, Minio will provide S3 API access for Azure Blob Storage.
 
-<%= image_tag("azure.png") %>
+![alt-text=""](./images/azure.png)
 
 Run the following command to create a Minio instance:
 
@@ -54,7 +54,7 @@ Change `azure-storage-account-name` and `azure-storage-account-key` with the act
 
 In this deployment, Minio will provide S3 API access for Google Cloud Storage.
 
-<%= image_tag("gcs.png") %>
+![alt-text=""](./images/gcs.png)
 
 ```sh
 cf create-service minio standard minio-instance-1 -c minio.conf
@@ -67,4 +67,3 @@ minio-cf --access-key randomaccesskey --secret-key randomsecretkey --gcs /path/t
 ```
 
 Custom access-key and secret-key should be provided. AccessKey is similar to username and should be minimum of 5 characters. SecretKey is similar to password, it should be randomly generated and kept secure. Follow [these steps](https://docs.minio.io/docs/minio-gateway-for-gcs) to generate the credentials.json file.
-
